@@ -24,7 +24,7 @@ namespace AngularDemoApplication
         {
             services.AddDbContext<DataContext>(options =>
             {
-                options.UseSqlite("");
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
