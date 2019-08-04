@@ -29,16 +29,28 @@
   <button mat-menu-item>Item 2</button>
 </mat-menu>-->
 
-<mat-sidenav-container class="sidebar-container">
-  <mat-sidenav #sidenav [mode]="side" disableClose
-               [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
-               [fixedBottomGap]="options.value.bottom"
-               [(opened)]="opened">
-    Sidenav content
-  </mat-sidenav>
+<mat-nav-list>
+  <div class="menu-header">
+    <div class="menu-logo">
+      <img src="assets/images/Logo.png" *ngIf="isExpanded" />
+      <img src="assets/images/Logo_sm.png" *ngIf="!isExpanded" />
+    </div>
+  </div>
 
-  <mat-sidenav-content>
-    <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>
-    <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  <mat-list-item>
+    <mat-icon mat-list-icon>person</mat-icon>
+    <h4 mat-line *ngIf="isExpanded">Management A</h4>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-icon mat-list-icon>assignment</mat-icon>
+    <h4 mat-line *ngIf="isExpanded">Management B</h4>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-icon mat-list-icon>domain</mat-icon>
+    <h4 mat-line *ngIf="isExpanded">Management C</h4>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-icon mat-list-icon>folder_shared</mat-icon>
+    <h4 mat-line *ngIf="isExpanded">Management X</h4>
+  </mat-list-item>
+</mat-nav-list>

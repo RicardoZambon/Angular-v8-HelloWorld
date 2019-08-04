@@ -1,7 +1,21 @@
 <body>
-  <app-nav-menu></app-nav-menu>
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
-  <app-value></app-value>
+
+  <mat-sidenav-container autosize opened [hasBackdrop]="false" class="sidebar-container" (backdropClick)="close('backdrop')">
+
+    <mat-sidenav #sidenav mode="side" opened (keydown.escape)="close('escape')" disableClose
+                 [fixedInViewport]="true" [fixedTopGap]="0" [fixedBottomGap]="0"
+                 [@menuAnimation]="sidebarExpanded">
+      <app-nav-menu [isExpanded]="sidebarExpanded"></app-nav-menu>
+    </mat-sidenav>
+
+    <mat-sidenav-content [@mainContentAnimation]="sidebarExpanded">
+      <div>
+        <button mat-stroked-button color="primary" (click)="ExpandCollapseSidebar()">{{sidebarExpanded ? 'Collapse' : 'Expand'}} Sidebar</button>
+      </div>
+
+      <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
 </body>

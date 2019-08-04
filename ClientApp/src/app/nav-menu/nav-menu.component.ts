@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nav-menu',
@@ -7,15 +6,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent {
-  options: FormGroup;
+  @Input('isExpanded') isExpanded: boolean;
 
-  constructor(fb: FormBuilder) {
-    this.options = fb.group({
-      bottom: 0,
-      fixed: true,
-      top: 0
-    });
-  }
-
-  opened: boolean;
 }
